@@ -11,18 +11,6 @@ import MyCard from './MyCard';
 export default function Feed() {
 
   const posts = useSelector(x => x.mainStore.totalPost);
-  // console.log(posts)
-  // const Mystack = styled('div')(({ theme }) => ({
-
-  //   // background: 'green',
-  //   // position: 'relative',
-  //   padding: '10px',
-  //   margin: '0 auto'
-  //   [theme.breakpoints.down('md')]:{
-  //   marginLeft: '9vw'
-  // }
-
-  // }))
 
   const Mystack = styled('div')(({ theme }) => ({
     padding: '10px',
@@ -40,8 +28,8 @@ export default function Feed() {
     <Mystack>
 
       <Stack direction="column" spacing={2} alignItems='center'>
-        {/* <MyCard /> */}
-        {posts.map(x => <MyCard post={x}/>)}
+       
+        {posts.map((x,idx) => <MyCard key={idx} post={x}/>)}
       </Stack>
 
 

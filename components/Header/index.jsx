@@ -2,14 +2,16 @@ import react, { useState } from 'react'
 
 
 import styled from "@emotion/styled";
-import { Group, Mail, NotificationAdd, Search, TramRounded, } from "@mui/icons-material";
+import { Group, Mail, NotificationAdd, Search, } from "@mui/icons-material";
 import { AppBar, Badge, Box, IconButton, InputBase, Toolbar, Typography } from "@mui/material";
 
+import { useDispatch, useSelector } from 'react-redux';
 
 
-// import style from './style.module.css'
 
 export default function Header() {
+
+    let mode = useSelector(x => x.mainStore.mode)
 
     const [searchbar, setsearchbar] = useState(true)
 
@@ -26,7 +28,8 @@ export default function Header() {
             padding: '3px',
             fontSize: "13px",
             outline: searchbar ? '1px solid white' : 'none',
-            marginLeft:'-13px',
+            marginLeft: '-13px',
+
         },
 
     }))
@@ -48,7 +51,16 @@ export default function Header() {
     return (
 
 
-        <AppBar sx={{ position: 'sticky', top: '0',width:'100%' }} >
+        <AppBar sx={
+            (theme) => (
+                {
+                    position: 'sticky', top: '0', width: '100%',
+                    backgroundColor: mode?'black':theme.palette.primary.main,
+                    [theme.breakpoints.down('md')]: {
+                        // background: 'black'
+                    }
+
+                })} >
 
             <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Box>

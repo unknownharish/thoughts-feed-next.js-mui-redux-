@@ -1,18 +1,30 @@
-import { Fab, Modal, Stack, styled } from '@mui/material'
+import { Fab, FormControlLabel, Modal, Stack, styled, Switch } from '@mui/material'
 import { House, Info, Groups, AdminPanelSettings, SettingsVoice, Settings, AddReaction, CrisisAlert, Edit } from '@mui/icons-material/';
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import Form from '../Right/Form';
+
+import { useDispatch, useSelector } from 'react-redux'
+import { changeMode } from '../../REDUX/actionSlice';
+
 
 export default function Left() {
 
-  const [openModal, setopenModal] = useState(false)
+  let dispatch = useDispatch()
 
+  let mode = useSelector(x => x.mainStore.mode)
+
+  const [openModal, setopenModal] = useState(false)
+  const [dark, setdark] = useState(0)
+  function changeTheme() {
+    setdark(!dark);
+    dispatch(changeMode(dark))
+  }
 
   let MyStack = styled('div')(({ theme }) => ({
 
     width: '17%',
     // background: '#ae4dd5',
-    background: theme.palette.primary.main,
+    backgroundColor: mode ? 'black' : theme.palette.primary.main,
     color: 'white',
     height: '108vh',
     position: 'fixed',
@@ -22,9 +34,10 @@ export default function Left() {
       margin: ' 0',
       width: '16%',
       cursor: 'pointer',
+      background: 'black',
 
     },
-    
+
     // flexGrow: 1,
 
   }))
@@ -61,18 +74,27 @@ export default function Left() {
 
       <Stack direction="column" spacing={1} >
 
-        <MyIcons title='Home'><House/><MyPara >Home</MyPara></MyIcons>
-        <MyIcons title='Info'  ><Info/><MyPara>Info</MyPara></MyIcons>
-        <MyIcons title='Friends'  ><Groups/><MyPara>Friends</MyPara></MyIcons>
-        <MyIcons title='Admin'  ><AdminPanelSettings/><MyPara>Admin</MyPara></MyIcons>
-        <MyIcons title='Voice'  ><SettingsVoice/><MyPara>Voice</MyPara></MyIcons>
+        <MyIcons title='Home'><House /><MyPara >Home</MyPara></MyIcons>
+        <MyIcons title='Info'  ><Info /><MyPara>Info</MyPara></MyIcons>
+        <MyIcons title='Friends'  ><Groups /><MyPara>Friends</MyPara></MyIcons>
+        <MyIcons title='Admin'  ><AdminPanelSettings /><MyPara>Admin</MyPara></MyIcons>
+        <MyIcons title='Voice'  ><SettingsVoice /><MyPara>Voice</MyPara></MyIcons>
         <MyIcons title='Settings'  ><Settings /><MyPara>Settings</MyPara></MyIcons>
-        <MyIcons title='Emojies'  ><AddReaction/><MyPara>Emojies</MyPara></MyIcons>
-        <MyIcons title='Logout'  ><CrisisAlert  /><MyPara>Logout</MyPara></MyIcons>
+        <MyIcons title='Emojies'  ><AddReaction /><MyPara>Emojies</MyPara></MyIcons>
+        <MyIcons title='Logout'  ><CrisisAlert /><MyPara>Logout</MyPara></MyIcons>
+
+        <MyIcons>
+
+          <FormControlLabel
+
+            sx={{ display: 'flex', justifyContent: 'center' }}
+            control={<Switch color='default' checked={!dark} onChange={changeTheme} />}
+            label={<MyPara sx={{ marginLeft: '5px' }}>Theme
+            </MyPara>}
 
 
-
-
+          />
+        </MyIcons>
         {/* //edit button */}
 
         <Fab aria-label="edit"
@@ -86,7 +108,7 @@ export default function Left() {
             display: 'none',
             [theme.breakpoints.down('md')]: {
               display: 'block',
-            margin:'3vh auto !important'
+              margin: '3vh auto !important'
             }
 
           })}
@@ -101,16 +123,16 @@ export default function Left() {
 
         <Modal
           open={openModal}
-          onClose={()=>setopenModal(!openModal)}
+          onClose={() => setopenModal(!openModal)}
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
-        
+
         >
-        <Form/>
+          <Form />
 
 
 
-        
+
         </Modal>
 
 

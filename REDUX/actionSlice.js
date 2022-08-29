@@ -80,7 +80,9 @@ let init = {
     {
         img: 'https://images.unsplash.com/photo-1589118949245-7d38baf380d6',
         title: 'Bike',
-    },]
+    },],
+
+    mode:'light'
 }
 
 const slice = createSlice({
@@ -90,10 +92,15 @@ const slice = createSlice({
 
         setPosts: (state, action) => {
 
-            console.log('in reducer', action);
+            // console.log('in reducer', action);
           state.totalPost = [action.payload,...state.totalPost,];
         //   state.totalPost = state.totalPost.reverse()
 
+        },
+
+
+        changeMode:(state,action)=>{
+            state.mode = action.payload
         }
 
 
@@ -102,6 +109,6 @@ const slice = createSlice({
 })
 
 
-export const { setPosts } = slice.actions
+export const { setPosts,changeMode } = slice.actions
 
 export default slice.reducer

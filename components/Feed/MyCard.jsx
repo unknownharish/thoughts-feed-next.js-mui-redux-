@@ -8,7 +8,7 @@ import Image from 'next/image'
 
 export default function MyCard({ post }) {
 
-  console.log(post)
+  // console.log(post)
 
   const [liked, setliked] = useState(false)
 
@@ -22,7 +22,6 @@ export default function MyCard({ post }) {
 
       width: '80vw',
       display: 'inline-block',
-      // marginLeft:'15vw',
     },
     overflow: 'hidden',
 
@@ -44,7 +43,6 @@ export default function MyCard({ post }) {
           }
 
           title={post.name}
-          // subheader="September 14, 2016"
           subheader={post.time[1] + ' ' + post.time[0] + ' ' + post.time[2]}
         />
 
@@ -54,7 +52,6 @@ export default function MyCard({ post }) {
             src={post.url}
             layout={'responsive'}
             loader={myLoader}
-            // placeholder='blur'
             height={200}
             width={400}
             alt='some image related to post'
@@ -62,12 +59,6 @@ export default function MyCard({ post }) {
 
         </Box>
 
-        {/* <CardMedia
-          component="img"
-          height="194"
-          image="https://www.photos-public-domain.com/wp-content/uploads/2012/03/frilled-lizard.jpg"
-          alt="Paella dish"
-        /> */}
 
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

@@ -64,7 +64,6 @@ export default function Form() {
         let DESC = document.getElementById('desc').value
         let URL = document.getElementById('url').value;
 
-        // setName(NAME); setDesc(DESC); settitle(TITLE); setUrl(URL)
 
         console.log('name', Name, 'title', title, 'desc', Desc, 'url', Url)
 
@@ -106,6 +105,7 @@ export default function Form() {
                     <Typography variant='h6' textAlign={'center'}>Create Post</Typography>
 
                     <Input
+                    sx={{marginTop:'1vh'}}
                         id='name'
                         startAdornment={
                             <InputAdornment position="start">
@@ -118,6 +118,7 @@ export default function Form() {
                     />
 
                     <Input
+                        sx={{marginTop:'1vh'}}
                         id='title'
                         startAdornment={
                             <InputAdornment position="start">
@@ -135,7 +136,7 @@ export default function Form() {
                                 <WbIncandescent />
                             </InputAdornment>
                         }
-                        sx={{ m: '5px 0' }}
+                        sx={{ m: '8px 0' }}
                         placeholder='whats in your mind...! in 200 words'
                         margin="normal"
                     // value={Desc}
@@ -148,7 +149,7 @@ export default function Form() {
                                 <Image />
                             </InputAdornment>
                         }
-                        sx={{ m: '5px 0' }}
+                        sx={{ m: '8px 0' }}
                         placeholder='Image url'
                         margin="normal"
                     // value={Url}
@@ -159,6 +160,7 @@ export default function Form() {
 
                     <Typography variant='body1' textAlign={'left'}>Gender</Typography>
                     <RadioGroup
+                    sx={{marginTop:'1vh'}}
                         defaultValue="female"
                         name="radio-buttons-group"
                         row
