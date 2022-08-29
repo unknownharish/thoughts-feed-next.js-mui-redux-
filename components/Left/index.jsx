@@ -18,6 +18,8 @@ export default function Left() {
   function changeTheme() {
     setdark(!dark);
     dispatch(changeMode(dark))
+
+    // console.log(mode)
   }
 
   let MyStack = styled('div')(({ theme }) => ({
@@ -34,7 +36,7 @@ export default function Left() {
       margin: ' 0',
       width: '16%',
       cursor: 'pointer',
-      background: 'black',
+      
 
     },
 
@@ -88,12 +90,15 @@ export default function Left() {
           <FormControlLabel
 
             sx={{ display: 'flex', justifyContent: 'center' }}
-            control={<Switch color='default' checked={!dark} onChange={changeTheme} />}
-            label={<MyPara sx={{ marginLeft: '5px' }}>Theme
+            control={<Switch color='default' checked={!dark} onChange={changeTheme}  sx={(theme)=>({ [theme.breakpoints.down('md')]:{
+              marginLeft:'20px'
+            }   })} />}
+            label={<MyPara  sx={{  marginLeft: '5px'}}
+              >Theme
             </MyPara>}
 
 
-          />
+          /> 
         </MyIcons>
         {/* //edit button */}
 

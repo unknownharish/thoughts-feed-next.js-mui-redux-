@@ -55,6 +55,7 @@ export default function MyCard({ post }) {
             height={200}
             width={400}
             alt='some image related to post'
+            // placeholder={'blur'}
           />
 
         </Box>

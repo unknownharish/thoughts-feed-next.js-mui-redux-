@@ -8,7 +8,7 @@ let MyFooter =styled('div')(({theme})=>({
   textAlign:'center',
   background:'white',
   padding:'10',
-  margin:'10'
+  marginBottom:'15px'
 
 
 }))
