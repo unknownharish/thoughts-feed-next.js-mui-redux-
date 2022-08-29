@@ -15,10 +15,11 @@ export default function Feed() {
   const Mystack = styled('div')(({ theme }) => ({
     padding: '10px',
     margin: '0 auto',
+    background: 'white !important',
 
     [theme.breakpoints.down('md')]: {
       marginLeft: '15vw',
-      background:'white !important'
+      background: 'white !important'
 
 
     },
@@ -29,8 +30,8 @@ export default function Feed() {
     <Mystack>
 
       <Stack direction="column" spacing={2} alignItems='center'>
-       
-        {posts.map((x,idx) => <MyCard key={idx} post={x}/>)}
+
+        {posts.map((x, idx) => <MyCard key={idx} post={x} />)}
       </Stack>
 
 
