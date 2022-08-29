@@ -17,7 +17,8 @@ export default function Feed() {
     margin: '0 auto',
 
     [theme.breakpoints.down('md')]: {
-      marginLeft: '15vw'
+      marginLeft: '15vw',
+      background:'white !important'
 
 
     },
