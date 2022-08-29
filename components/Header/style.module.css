@@ -1,0 +1,16 @@
+.center {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    outline: 1px solid white;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    
+}
+
+.input{
+    width: 50vh;
+    
+
+}
