@@ -16,6 +16,8 @@ export default function Feed() {
     padding: '10px',
     margin: '0 auto',
     background: 'white !important',
+        color:'black',
+
 
     [theme.breakpoints.down('md')]: {
       marginLeft: '15vw',
